@@ -1,0 +1,216 @@
+.error {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: $gray_4;
+
+    &_inner {
+        @include background(url('../img/404/404.png'), no-repeat, top, center, 55.6%);
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        max-height: 100%;
+        max-width: $site_width;
+        overflow-x: hidden;
+    }
+
+    &_content {
+        padding: 5.21% $main_horizontal_padding 0;
+    }
+
+    .logo {
+        width: 31.15%;
+        margin: 0 auto 4.39%;
+
+        &_svg {
+            fill: $blue_2;
+        }
+    }
+
+    &_title {
+        @include font(38px, 40px, 'Montserrat-Bold');
+
+        margin-bottom: 15px;
+        text-transform: uppercase;
+    }
+
+    &_description {
+        margin-bottom: 8.78%;
+        text-align: center;
+    }
+
+    &_paragraph {
+        @include font(18px, 24px, 'Montserrat-Regular');
+
+        color: $gray_2;
+    }
+
+    &_services {
+
+        &_list {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        &_item {
+            position: relative;
+            width: 22.9%;
+        }
+
+        &_link {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 9.6% 11.5%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: $gray_6;
+            overflow: hidden;
+            z-index: 1;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: $blue_4;
+                opacity: 0;
+                transition: 0.2s;
+                z-index: -1;
+            }
+
+            &:hover::before {
+                opacity: 0.7;
+            }
+
+            &:hover .services_link_more {
+                color: $white_1;
+            }
+
+            &:hover .services_link_more_svg {
+                fill: $white_1;
+            }
+
+            &_img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            &_title {
+                @include font(16px, 26px, 'Montserrat-Bold');
+
+                color: $white_1;
+
+                span {
+                    display: block;
+                }
+            }
+
+            &_more {
+                @include font(14px, 24px, 'Montserrat-Bold');
+
+                color: $blue_3;
+                transition: 0.2s;
+
+
+                &_svg {
+
+                    fill: $blue_3;
+                    transition: 0.2s;
+
+                    &_wrap {
+                        display: inline-block;
+                        width: 30px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// 0 - 767px
+@include respond-to(mobile) {
+
+    .error {
+
+        &_inner {
+            position: relative;
+            top: 0;
+            left: 0;
+            transform: unset;
+            background-size: 100%;
+            background-position: 0 25px;
+        }
+
+        &_content {
+            padding: 15px 10px;
+        }
+
+        .logo {
+            width: 46.67%;
+            margin: 60px auto 20px;
+        }
+
+        &_description {
+            margin-bottom: 40px;
+        }
+
+        &_title {
+            font-size: 18px;
+            line-height: 30px;
+            margin-bottom: 0;
+        }
+
+        &_paragraph {
+            font-size: 11px;
+            line-height: 18px;
+        }
+
+        &_services {
+
+            &_list {
+                flex-direction: column;
+            }
+
+            &_item {
+                width: 100%;
+                max-width: 480px;
+                padding-bottom: 25%;
+                margin-bottom: 15px;
+            }
+
+            &_link {
+                display: flex;
+                justify-content: center;
+                padding: 15px 30px;
+
+                &_img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+
+                &_title {
+                    font-size: 14px;
+                    line-height: 22px;
+                }
+
+                &_more {
+                    display: none;
+                }
+            }
+        }
+    }
+}

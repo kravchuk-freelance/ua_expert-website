@@ -1,0 +1,247 @@
+.expert_services {
+    background-color: $gray_4;
+
+    &__head {
+        @include background(url("../img/expert_services/expert_services__head_bg.jpg"));
+
+        padding-bottom: 3.65%;
+
+        &_inner {
+            max-width: $site_width;
+            padding: 20px $main_horizontal_padding;
+            margin: 0 auto;
+        }
+
+        &_top {
+            margin-bottom: 5.7%;
+
+            &_list {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            &_item {
+                margin-right: 12px;
+
+                &:first-child .expert_services__head_top_link {
+
+                    &::before {
+                        display: none;
+                    }
+                }
+            }
+
+            &_link {
+                @include icon(arrow-right-thin);
+                @include font(14px, 24px, 'Montserrat-Regular');
+
+                color: $gray_12;
+                transition: 0.2s;
+
+                &:hover {
+                    color: $gray_4;
+                }
+
+                &::before {
+                    font-size: 0.6em;
+                    margin-right: 8px;
+                }
+            }
+        }
+
+        &_title {
+            @include font(36px, 42px, 'PlayfairDisplay-Bold');
+
+            color: $white_1;
+        }
+    }
+
+    &__inner {
+        max-width: $site_width;
+        padding: 50px $main_horizontal_padding;
+        margin: 0 auto;
+    }
+
+    &__description {
+        @include font(14px, 24px, 'Montserrat-Regular');
+
+        margin-bottom: 6.14%;
+        color: $gray_10;
+    }
+
+    &__expertise {
+
+        &_list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 1fr;
+            grid-gap: 30px;
+        }
+
+        &_link {
+            position: relative;
+            display: block;
+            height: 100%;
+
+            &:hover {
+
+                .expert_services__expertise_img {
+                    transform: scale(1.1);
+                }
+            }
+        }
+
+        &_photo {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        &_img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.2s;
+        }
+
+        &_description {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+            height: 100%;
+            padding: 11.45%;
+
+            &_title {
+                @include font(16px, 24px, 'Montserrat-Bold');
+
+                color: $white_1;
+                overflow: hidden;
+            }
+
+            &_price {
+                @include font(18px, 24px, 'Montserrat-Bold');
+
+                margin-bottom: 20px;
+                color: $green_1;
+            }
+
+            &_more {
+                @include font(14px, 24px, 'Montserrat-Bold');
+
+                color: $blue_3;
+                white-space: nowrap;
+
+                &__icon {
+                    @include icon(arrow-right-thin, after);
+
+                    &::after {
+                        font-size: 0.6em;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// 0 - 1023px
+@include respond-to(tablet) {
+
+    .expert_services {
+
+        &__expertise {
+
+            &_list {
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 20px;
+            }
+
+            &_description {
+
+                &_title {
+                    max-height: 96px;
+                }
+            }
+        }
+    }
+}
+
+
+// 0 - 767px
+@include respond-to(mobile) {
+
+    .expert_services {
+
+        &__inner {
+            padding: 25px 10px;
+        }
+
+        &__description {
+            font-size: 11px;
+            line-height: 20px;
+            margin-bottom: 25px;
+        }
+
+        &__expertise {
+
+            &_list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    }
+}
+
+
+// 0 - 479px
+@include respond-to(mobile_small) {
+
+    .expert_services {
+
+        &__head {
+            padding-bottom: 0;
+
+            &_inner {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                min-height: 100px;
+            }
+
+            &_top {
+                display: none;
+            }
+        }
+
+        &__expertise {
+
+            &_list {
+                grid-template-columns: 1fr;
+                grid-auto-rows: 42vw;
+                grid-gap: 15px;
+            }
+
+            &_description {
+                padding: 15px;
+
+                &_title {
+                    font-size: 13px;
+                    line-height: 20px;
+                }
+
+                &_price {
+                    font-size: 13px;
+                    line-height: 20px;
+                    margin-bottom: 5px;
+                }
+
+                &_more {
+                    font-size: 13px;
+                    line-height: 20px;
+                }
+            }
+        }
+    }
+}

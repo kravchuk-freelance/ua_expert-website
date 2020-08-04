@@ -1,0 +1,225 @@
+.service_open_label:hover + .services__menu {
+    opacity: 1;
+    visibility: visible;
+    transition: 0.2s;
+}
+
+.services {
+
+    &__menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 23.54%;
+        max-width: $site_width;
+        max-height: calc(100vh - (34px + 1.46vw));
+        padding-top: 1.46%;
+        opacity: 0;
+        visibility: hidden;
+        
+        &:hover {
+            opacity: 1;
+            visibility: visible;
+            transition: 0.2s;
+        }
+
+        &_list {
+            display: block;
+        }
+
+        &_item {
+            background-color: $blue_5;
+            transition: 0.2s;
+
+            &:hover {
+                background-color: $blue_8;
+
+                .services__menu_link_span {
+                    color: $blue_3;
+
+                    &::before {
+                        transform: translateY(-50%) rotate(90deg);
+                        color: $blue_3;
+                    }
+                }
+
+                .services__submenu {
+                    opacity: 1;
+                    visibility: visible;
+                    transition: 0.2s;
+                }
+            }
+        }
+
+        &_link {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 20px;
+            height: 75px;
+            border-right: 1px solid $blue_9;
+            border-bottom: 1px solid $blue_9;
+            overflow: hidden;
+            cursor: default;
+
+            &_span {
+                @include font(14px, 20px, 'Montserrat-Bold');
+
+                color: $gray_11;
+                transition: 0.2s;
+
+                &--arrow_right {
+                    @include icon(arrow-right);
+
+                    position: relative;
+                    padding-right: 20px;
+
+                    &::before {
+                        position: absolute;
+                        right: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        font-size: 0.8em;
+                        color: $gray_11;
+                        transition: 0.2s;
+                    }
+                }
+            }
+        }
+    }
+
+    &__submenu {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 324.85%;
+        padding-top: 6.2%;
+        opacity: 0;
+        visibility: hidden;
+
+        &_list {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+        }
+
+        &_item {
+            background-color: $blue_6;
+            transition: 0.2s;
+
+            &:hover {
+                background-color: $blue_8;
+            }
+        }
+
+        &_link {
+            @include font(14px, 20px, 'Montserrat-Regular');
+
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 75px;
+            padding: 20px;
+            border-bottom: 1px solid $blue_9;
+            border-right: 1px solid $blue_9;
+            color: $white_1;
+            transition: 0.2s;
+            overflow: hidden;
+
+            &:hover {
+                color: $blue_3;
+            }
+        }
+    }
+}
+
+
+// 0 - 1023px
+@include respond-to(tablet) {
+
+    .services {
+
+        &__menu {
+
+            &_link {
+                height: auto;
+            }
+        }
+    }
+}
+
+
+// 0 - 767px
+@include respond-to(mobile) {
+
+    .services {
+
+        &__menu {
+            width: 100%;
+            max-height: calc(100vh - (55px + 1.46vw));
+            overflow-y: scroll;
+
+            &_list {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+            }
+
+            &_item  {
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+
+                &:hover {
+
+                    .services__submenu {
+                        display: block;
+                    }
+                }
+            }
+
+            &_link {
+                height: auto;
+
+                &_span {
+                    @include font(14px, 20px, 'Montserrat-Bold');
+                }
+            }
+        }
+
+        &__submenu {
+            display: none;
+            position: relative;
+            width: 100%;
+            left: 0;
+            padding-top: 0;
+
+            &_list {
+                grid-template-columns: 1fr;
+            }
+
+            &_link {
+                @include font(12px, 20px, 'Montserrat-Regular');
+            }
+        }
+    }
+}
+
+
+// 0 - 479px
+@include respond-to(mobile_small) {
+
+    .services {
+
+        &__menu {
+            max-height: -webkit-calc(100vh - 51px);
+            padding-top: 5px;
+        }
+
+        &__submenu {
+
+            &_link {
+                height: 60px;
+            }
+        }
+    }
+}

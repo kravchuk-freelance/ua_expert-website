@@ -1,0 +1,304 @@
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.46% 0;
+    background-color: $blue_1;
+    z-index: 99;
+
+    &_list {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        height: 100%;
+        width: 100%;
+        max-width: $site_width;
+        padding: 0 $main_horizontal_padding;
+        margin: 0 auto;
+    }
+
+    &_item {
+        display: flex;
+        align-items: center;
+    }
+
+    &_label {
+        @include font(14px, 18px, 'Montserrat-Regular');
+
+        position: relative;
+        display: flex;
+        align-items: center;
+        color: $gray_1;
+        transition: 0.2s;
+    }
+
+    &_link {
+        @include font(14px, 18px, 'Montserrat-Regular');
+
+        position: relative;
+        display: flex;
+        align-items: center;
+        color: $gray_1;
+        transition: 0.2s;
+
+        &:hover {
+            color: $blue_2;
+        }
+
+        &_svg {
+            fill: $white_1;
+        }
+    }
+
+    .menu_open_label {
+        height: 100%;
+
+        .header_label_svg {
+            fill: $white_1;
+
+            &_wrap {
+                width: 25px;
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .consultation {
+        color: $gray_1;
+        border-bottom: 1px solid $gray_1;
+        transition: 0.2s;
+
+        &:hover {
+            color: $blue_2;
+            border-bottom: 1px solid $blue_2;
+        }
+    }
+
+    .service_open_label {
+        @include icon(arrow-down);
+
+        position: relative;
+        height: 100%;
+        padding-right: 15px;
+
+        &::before {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            font-size: 0.8em;
+        }
+    }
+
+    .logo {
+
+        .header_label_svg_wrap {
+            width: 180px;
+        }
+    }
+
+    .call {
+        border-bottom: 1px solid $gray_1;
+
+        &:hover {
+            color: $blue_2;
+            border-bottom: 1px solid $blue_2;
+        }
+    }
+
+    .search {
+        width: 100%;
+        max-width: 100px;
+
+        &_label {
+            position: relative;
+            display: block;
+            padding-left: 15px;
+        }
+
+        &_icon {
+            @include icon(search);
+
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            color: $gray_1;
+        }
+
+        &_input {
+            @include font(14px, 18px, 'Montserrat-Regular');
+
+            width: 100%;
+            border: 0;
+            background-color: transparent;
+            color: $gray_1;
+
+            &:focus::placeholder {
+                color: transparent;
+            }
+        }
+    }
+
+    .select {
+
+        &_wrap {
+            @include font(14px, 18px, 'Montserrat-Regular');
+
+            color: $gray_1;
+        }
+
+        &-selected {
+            padding: 7px;
+            padding-right: 30px;
+            text-transform: uppercase;
+        }
+
+        &-items {
+            padding: 0;
+            text-transform: uppercase;
+
+            div {
+                position: relative;
+                padding: 7px;
+                padding-right: 30px;
+
+                &:first-child::before {
+                    content: "";
+                    background-image: url("../img/general/header/ua-flag.png");
+                    background-size: cover;
+                    position: absolute;
+                    right: 7px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 16px;
+                    height: 10px;
+                }
+
+                &:nth-child(2)::before {
+                    content: "";
+                    background-image: url("../img/general/header/uk-flag.png");
+                    background-size: cover;
+                    position: absolute;
+                    right: 7px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 16px;
+                    height: 10px;
+                }
+
+                &:last-child::before {
+                    content: "";
+                    background-image: url("../img/general/header/rus-flag.png");
+                    background-size: cover;
+                    position: absolute;
+                    right: 7px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 16px;
+                    height: 10px;
+                }
+            }
+        }
+    }
+}
+
+.ua {
+
+    &::before {
+        content: "";
+        background-image: url("../img/general/header/ua-flag.png");
+        background-size: cover;
+        position: absolute;
+        right: 7px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 16px;
+        height: 10px;
+    }
+}
+
+.uk {
+
+    &::before {
+        content: "";
+        background-image: url("../img/general/header/uk-flag.png");
+        background-size: cover;
+        position: absolute;
+        right: 7px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 16px;
+        height: 10px;
+    }
+}
+
+.ru {
+
+    &::before {
+        content: "";
+        background-image: url("../img/general/header/rus-flag.png");
+        background-size: cover;
+        position: absolute;
+        right: 7px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 16px;
+        height: 10px;
+    }
+}
+
+
+// 0 - 767px
+@include respond-to(mobile) {
+
+    .header {
+        padding: 5px 0;
+
+        &_list {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            justify-items: center;
+        }
+
+        &_item {
+
+            &:first-child {
+                grid-column: span 2;
+            }
+
+            &:nth-child(2) {
+                grid-column: span 2;
+            }
+
+            &:nth-child(3) {
+                grid-column: 3 / 5;
+                grid-row: 2 / 3;
+            }
+
+            &:nth-child(4) {
+                grid-column: 3 / 5;
+                grid-row: 1 / 2;
+            }
+
+            &:nth-child(5) {
+                grid-column: span 2;
+            }
+        }
+    }
+}
+
+
+// 0 - 479px
+@include respond-to(mobile_small) {
+
+    .header {
+
+        .menu_open_label {
+            .header_label_svg_wrap {
+                width: 20px;
+            }
+        }
+    }
+}

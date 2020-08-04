@@ -1,0 +1,135 @@
+.menu_checkbox {
+    display: none;
+
+    &:checked ~ .menu {
+        left: 0;
+    }
+}
+
+.menu {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    height: 100%;
+    height: 100vh;
+    max-width: 30%;
+    padding: 5%;
+    background-color: $blue_1;
+    z-index: 100;
+    transition: 0.5s;
+
+    &_inner {
+        padding-right: 10px;
+    }
+
+    &_close_label {
+        @include icon(close);
+
+        position: absolute;
+        top: 40px;
+        right: 40px;
+        color: $white_1;
+
+        &::before {
+            display: block;
+            font-size: 2rem;
+        }
+    }
+
+    &_close_svg {
+        fill: $white_1;
+    }
+
+    &_list {
+        position: relative;
+        padding-bottom: 1px;
+        margin-top: 30px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 30px;
+            border-bottom: 1px solid $gray_2;
+        }
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+
+            &::before {
+                border-bottom: 0;
+            }
+        }
+    }
+
+    &_item {
+        margin-bottom: 30px;
+    }
+
+    &_link {
+        @include font(16px, 20px, 'Montserrat-Regular');
+
+        color: $white_1;
+    }
+}
+
+
+// 0 - 1023px
+@include respond-to(tablet) {
+
+    .menu {
+        width: auto;
+        max-width: 50%;
+
+        &_close_label {
+            top: 35px;
+            right: 25px;
+        }
+
+        &_inner {
+            max-height: 100%;
+            overflow-y: scroll;
+            padding-right: 10px;
+        }
+    }
+}
+
+
+// 0 - 767px
+@include respond-to(mobile) {
+
+    .menu {
+
+        &_close_label {
+            top: 20px;
+        }
+    }
+}
+
+
+// 0 - 479px
+@include respond-to(mobile_small) {
+
+    .menu {
+        width: 100%;
+        max-width: none;
+        padding: 50px 30px;
+
+        &_close_label {
+            top: 25px;
+
+            &::before {
+                font-size: 3rem;
+            }
+        }
+
+        &_link {
+            font-size: 2.6rem;
+            line-height: 3rem;
+        }
+    }
+}

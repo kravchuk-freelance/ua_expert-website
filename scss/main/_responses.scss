@@ -1,0 +1,258 @@
+.responses {
+    position: relative;
+    background-color: $gray_4;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 60%;
+        padding-bottom: 10.5%;
+        background-color: $gray_5;
+    }
+
+    &_inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        max-width: $site_width;
+        margin: auto;
+        padding: 4.2% $main_horizontal_padding 6.25%;
+    }
+
+    &_title {
+        @include font(40px, 40px, 'PlayfairDisplay-Bold');
+
+        text-align: center;
+        z-index: 1;
+
+        &::first-letter {
+            color: $blue_3;
+        }
+    }
+
+    &_slider {
+        padding-top: 15.5%;
+        margin-bottom: 0;
+    }
+
+    &_slide {
+
+        &.slick-slide {
+            display: flex;
+            align-items: flex-start;
+            padding: 0 5px;
+        }
+    }
+
+    .slide_count {
+        @include font(40px, 40px, 'Montserrat-Bold');
+
+        position: absolute;
+        top: -40px;
+        left: 8.77%;
+        // transform: translate(0, 50%);
+        color: $gray_12;
+
+        span {
+            color: $black_1;
+        }
+    }
+    
+// Slick slider start
+    .slick-dotted.slick-slider {
+        margin-bottom: 0;
+    }
+
+    .slick-dots {
+        position: absolute;
+        top: -40px;
+        transform: translate(0, 50%);
+        right: 0;
+        width: max-content;
+        height: 15px;
+        z-index: 1;
+
+        li {
+            width: 10px;
+            height: 10px;
+
+            button:before {
+                color: $gray_2;
+            }
+
+            &.slick-active button:before {
+                color: $blue_3;
+            }
+        }
+    }
+
+    .slick-prev {
+        top: -30px;
+        left: 0;
+        transform: translate(0, 0);
+        z-index: 1;
+
+        &::before {
+            content: '';
+            display: block;
+            height: 20px;
+            background-image: url("../img/svg/main/slider-left-arrow-button.svg");
+            background-size: contain;
+            opacity: 0.5;
+        }
+    }
+
+    .slick-next {
+        top: -30px;
+        left: 21.49%;
+        transform: translate(0, 0);
+        z-index: 1;
+
+        &::before {
+            content: '';
+            display: block;
+            height: 20px;
+            background-image: url("../img/svg/main/slider-right-arrow-button.svg");
+            background-size: contain;
+            opacity: 0.5;
+        }
+    }
+// Slick slider end
+
+    &_photo {
+        position: relative;
+        padding-bottom: 20%;
+        padding-left: 20%;
+        margin: 0 15px 15px 0;
+
+        &_img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+        }
+    }
+
+    &_description {
+
+        .title {
+            @include font(14px, 24px, 'Montserrat-Bold');
+
+            margin-bottom: 20px;
+        }
+
+        .paragraph {
+            @include font(14px, 24px, 'Montserrat-Light');
+
+            max-height: 220px;
+            font-style: italic;
+        }
+    }
+}
+
+
+// 0 - 1023px
+@include respond-to(tablet) {
+
+    .responses {
+
+        &::before {
+            padding-bottom: 120px;
+            width: 65%;
+        }
+
+        .slide_count {
+            top: -35px;
+        }
+
+        .slick-next {
+            top: -25px;
+        }
+
+        .slick-prev {
+            top: -25px;
+        }
+
+        .slick-dots {
+            top: -25px;
+        }
+    }
+}
+
+
+// 0 - 767px
+@include respond-to(mobile) {
+
+    .responses {
+
+        &::before {
+            padding-bottom: 100px;
+        }
+
+        &_inner {
+            position: relative;
+            padding-top: 34px;
+        }
+
+        &_title {
+            position: absolute;
+            left: 45%;
+            top: 34px;
+        }
+
+        &_slide {
+
+            &.slick-slide {
+                flex-direction: column;
+            }
+        }
+
+        &_photo {
+            padding-bottom: 50px;
+            padding-left: 50px;
+        }
+
+        .slick-prev {
+            top: 5px;
+        }
+
+        .slick-next {
+            top: 5px;
+        }
+
+        .slick-dots {
+            top: 5px;
+        }
+
+        .slide_count {
+            top: 0;
+        }
+
+        &_description {
+
+            .title {
+                font-size: 12px;
+                line-height: 24px;
+            }
+
+            .paragraph {
+                font-size: 12px;
+                line-height: 24px;
+            }
+        }
+    }
+}
+
+
+// 0 - 479px
+@include respond-to(mobile_small) {
+
+    .responses {
+
+        &_slider {
+            padding-top: 23%;
+        }
+    }
+}

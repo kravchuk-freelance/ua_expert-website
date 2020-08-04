@@ -1,0 +1,46 @@
+@import "fonts.scss";
+@import "variables.scss";
+@import "extends.scss";
+@import "mixins.scss";
+@import "reset.scss";
+@import "icons.scss";
+// GENERAL
+@import "general/elements.scss";    // Styling the {select, button} elements
+@import "general/header.scss";
+@import "general/menu.scss";
+@import "general/services_menu.scss";
+@import "general/popup_consultation.scss";
+@import "general/footer.scss";
+@import "general/404.scss";
+//MAIN
+@import "main/banner.scss";
+@import "main/services.scss";
+@import "main/advantages.scss";
+@import "main/partners.scss";
+@import "main/responses.scss";
+// PRICE
+@import "price/price.scss";
+// ABOUT
+@import "about/about.scss";
+// EXPERT SERVICES
+@import "expert_services/expert_services.scss";
+// SEPARATE SERVICE
+@import "separate_service/separate_service.scss";
+// SEPARATE NEWS
+@import "separate_news/separate_news.scss";
+// SEPARATE CASE
+@import "separate_case/separate_case.scss";
+// CONTACTS
+@import "contacts/contacts.scss";
+// FAQ
+@import "faq/faq.scss";
+// CASES
+@import "cases/cases.scss";
+// BLOG
+@import "blog/blog.scss";
+// SEARCH
+@import "search/search.scss";
+// INTERNATIONAL_COOPERATION
+@import "international_cooperation/international_cooperation.scss";
+// INTERNATIONAL_COOPERATION
+@import "commissioners_service/commissioners_service.scss";

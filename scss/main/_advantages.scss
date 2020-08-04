@@ -1,0 +1,198 @@
+.advantages {
+    overflow: hidden;
+
+    &_heading {
+        @include background(url('../img/main/advantages/advantages_header.png'));
+
+        position: relative;
+        padding-bottom: 18.3%;
+        background-color: $black_1;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 34%;
+            height: 100%;
+            background-color: $black_1;
+        }
+
+        &_svg {
+            position: absolute;
+            bottom: 17.7%;
+            left: 30.7%;
+            width: 58%;
+            fill: $gray_7;
+        }
+    }
+
+    &_description {
+        @include background(url('../img/main/advantages/advantages_bg.png'));
+
+        position: relative;
+        background-size: 75% 120%;
+        background-color: $gray_4;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 64.37%;
+            padding-bottom: 10.42%;
+            transform: translateY(-50%);
+            background-color: $white_1;
+        }
+
+        &_inner {
+            position: relative;
+            max-width: $site_width;
+            margin: auto;
+            padding: 3.64% 0;
+
+            .advantages {
+
+                &_title {
+                    @include font(40px, 45px, 'PlayfairDisplay-Bold');
+
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    transform: translate(-50%, -55%);
+                    color: $black_1;
+
+                    &::first-letter {
+                        color: $blue_3;
+                    }
+                }
+
+                &_list {
+                    display: flex;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    padding: 11.45% $main_horizontal_padding 5.21%;
+                }
+
+                &_item {
+                    width: 25%;
+                    padding-left: 10px;
+                    margin-bottom: 10.53%;
+
+                    &::before {
+                        content: "";
+                        position: relative;
+                        top: -10%;
+                        display: block;
+                        width: 10%;
+                        border-top: 2px solid $blue_3;
+                    }
+
+                    &_title {
+                        @include font(16px, 26px, 'Montserrat-Bold');
+
+                        color: $black_1;
+                        margin-bottom: 7%;
+
+                        &_blue {
+                            display: block;
+                            color: $blue_3;
+                        }
+                    }
+
+                    &_number {
+                        @include font(24px, 24px, 'Montserrat-Bold');
+
+                        color: $black_1;
+                        margin-bottom: 7%;
+                    }
+
+                    &_description {
+                        @include font(14px, 24px, 'Montserrat-Regular');
+
+                        color: $gray_7;
+
+                        span {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// 0 - 479px
+@include respond-to(mobile_small) {
+
+    .advantages {
+
+        &_heading {
+            padding-bottom: 38.75%;
+
+            &::before {
+                width: 20.31%;
+            }
+
+            &_svg {
+                bottom: 50%;
+                left: 50%;
+                transform: translate(-50%, 50%);
+                width: 100%;
+                padding: 0 15px;
+            }
+        }
+
+        &_description {
+
+            &::before {
+                padding-bottom: 31.25%;
+            }
+
+            &_inner {
+                padding: 42.19% 0 31.25%;
+
+                .advantages {
+
+                    &_title {
+                        left: 45.35%;
+                        transform: translate(0, -55%);
+                    }
+
+                    &_list_wrap {
+                        overflow-y: hidden;
+                    }
+
+                    &_list {
+                        flex-wrap: nowrap;
+                        width: 500%;
+                    }
+
+                    &_item {
+                        margin-bottom: 0;
+
+                        &_title {
+                            font-size: 14px;
+                            line-height: 22px;
+                        }
+
+                        &_number {
+                            font-size: 18px;
+                            line-height: 24px;
+                        }
+
+                        &_description {
+                            font-size: 10px;
+                            line-height: 18px;
+
+                            span {
+                                display: inline-block;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

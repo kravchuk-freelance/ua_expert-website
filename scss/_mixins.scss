@@ -1,0 +1,71 @@
+@mixin font($font_size, $line_height, $font_family: sans-serif) {
+	font: #{$font_size/$base_font_size}rem/#{$line_height/$base_font_size}rem $font_family;
+}
+
+@mixin background($url, $repeat: no-repeat, $top: top, $left: left, $size: cover, $color: transparent) {
+	background-image: $url;
+	background-repeat: $repeat;
+	background-position: $top $left;
+	background-size: $size;
+	background-color: $color;
+}
+
+@mixin triangle_bottom($width: 5px, $height: 5px, $color: #000000, $position: absolute, $top: 0, $right: 0) {
+	&::after {
+		content: "";
+		width: 0;
+		height: 0;
+		border: $width solid transparent;
+		border-top: $height solid $color;
+		position: $position;
+		top: $top;
+		right: $right;
+	}
+}
+
+@mixin before($height: 1px, $width: 100%, $top: 0, $left: 0, $color: red) {
+	&::before {
+		content: "";
+		display: block;
+		height: $height;
+		width: $width;
+		position: absolute;
+		top: $top;
+		left: $left;
+		background-color: $color;
+	}
+}
+
+@mixin after($height: 1px, $width: 100%, $bottom: 0, $left: 0, $color: red) {
+	&::after {
+		content: "";
+		display: block;
+		height: $height;
+		width: $width;
+		position: absolute;
+		bottom: $bottom;
+		left: $left;
+		background-color: $color;
+	}
+}
+
+@mixin respond-to($media) {
+	// 0 - 479
+	@if $media == mobile_small {
+		@media only screen and (max-width: $mobile-landscape - 1) {
+			@content;
+		}
+	}
+	// 480 - 767
+	@if $media == mobile {
+		@media only screen and (max-width: $tablet-portrait - 1) {
+			@content;
+		}
+	}
+	// 768 - 1023
+	@if $media == tablet {
+		@media only screen and (max-width: $tablet-landscape - 1) {
+			@content;
+		}
+	}
+}

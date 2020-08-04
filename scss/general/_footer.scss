@@ -1,0 +1,256 @@
+.footer {
+    background-color: $blue_1;
+
+    &_main {
+        max-width: $site_width;
+        margin: 0 auto;
+        padding: 2.6% 10px;
+    }
+
+    &_head {
+        margin-bottom: 3.5%;
+
+        &_logo {
+            width: 180px;
+
+            &_svg {
+                fill: $white_1;
+            }
+        }
+    }
+
+    &_content {
+
+        &_list {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        &_item {
+            width: 31.5%;
+        }
+
+        &_title {
+            @include font(14px, 24px, 'Montserrat-Bold');
+
+            color: $white_1;
+            margin-bottom: 5.6%;
+
+            &_link {
+                @include font(14px, 24px, 'Montserrat-Bold');
+
+                color: $white_1;
+            }
+        }
+
+        &_article {
+            border-bottom: 1px solid $gray_9;
+            padding-bottom: 5.6%;
+            margin-bottom: 10px;
+        }
+
+        &_paragraph {
+            @include font(12px, 24px, 'Montserrat-Regular');
+
+            color: $gray_1;
+        }
+
+        &_link {
+            @include font(12px, 24px, 'Montserrat-Regular');
+
+            display: inline-block;
+            color: $gray_1;
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+            &.color {
+                color: $white_1;
+            }
+        }
+
+        &_arrow {
+            display: inline-block;
+            width: 17px;
+
+            &_svg {
+                fill: $white_1;
+            }
+        }
+    }
+
+    .privacy {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        &_link {
+            @include font(14px, 24px, 'Montserrat-Regular');
+
+            display: block;
+            color: $gray_9;
+            text-decoration: underline;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    &_faq {
+
+        &_list {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        &_link {
+            @include font(12px, 24px, 'Montserrat-Regular');
+
+            color: $gray_1;
+            text-decoration: underline;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    &_bottom {
+        background-color: $black_2;
+
+        &_inner {
+            max-width: $site_width;
+            margin: 0 auto;
+            padding: 20px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .copyright {
+            @include font(14px, 24px, 'Montserrat-Regular');
+
+            color: $gray_9;
+
+            &_logo {
+                width: 5.7%;
+
+                &_link {
+
+                    &:hover {
+
+                        .copyright_logo_svg {
+                            fill: $purple_1;
+                        }
+                    }
+                }
+                
+                &_svg {
+                    fill: $gray_9;
+                    transition: 0.2s;
+                }
+            }
+        }
+    }
+}
+
+
+// 0 - 767px
+@include respond-to(mobile) {
+
+    .footer {
+        
+        &_bottom {
+
+            .copyright {
+
+                &_logo {
+                    width: 40px; 
+                }
+            }
+        }
+    }
+}
+
+
+// 0 - 479px
+@include respond-to(mobile_small) {
+
+    .footer {
+
+        &_head {
+            padding-top: 40px;
+
+            &_logo {
+                width: 220px;
+            }
+        }
+        
+        &_content {
+
+            &_list {
+                flex-direction: column;
+            }
+
+            &_item {
+                width: 100%;
+                padding-bottom: 5.6%;
+                margin-bottom: 10px;
+
+                &:nth-child(2) {
+                    order: 1;
+                }
+
+                &:nth-child(3) {
+                    border-bottom: 1px solid $gray_9;
+                }
+            }
+
+            &_title {
+                font-size: 12px;
+                line-height: 24px;
+
+                &_link {
+                    font-size: 12px;
+                    line-height: 24px;
+                }
+            }
+
+            &_article {
+                border-bottom: 0;
+            }
+
+            &_paragraph {
+                font-size: 10px;
+                line-height: 18px;
+            }
+
+            &_link {
+                font-size: 10px;
+                line-height: 18px;
+            }
+        }
+
+        &_faq {
+
+            &_link {
+                font-size: 10px;
+                line-height: 18px;
+            }
+        }
+
+        &_bottom {
+
+            .copyright {
+
+                &_logo {
+                    width: 40px; 
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,218 @@
+.price {
+    background-color: $gray_4;
+
+    &_inner {
+        position: relative;
+        display: flex;
+        max-width: $site_width;
+        padding: 0 $main_horizontal_padding;
+        margin: auto;
+    }
+
+    .aside {
+        position: sticky;
+        top: 4.7vw;
+        height: calc(100vh - 4.7vw);
+        width: 23.25%;
+
+        &_inner {
+            height: 100%;
+        }
+
+        &_list {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 100%;
+            padding: 7.58% 0 7.58% 20.84%;
+        }
+
+        &_link {
+            @include font(14px, 24px, 'Montserrat-Bold');
+
+            display: block;
+            color: $gray_11;
+
+            &:hover {
+                color: $blue_3;
+            }
+
+            &.active {
+                color: $blue_3;
+            }
+        }
+    }
+
+    &_content {
+        width: 76.75%;
+        border-right: 1px solid $gray_12;
+    }
+
+
+// Expertise, Research, Realty, Autotransport, Airtransport, Equipment, Enterprise
+    .expertise,
+    .research,
+    .realty,
+    .autotransport,
+    .airtransport,
+    .equipment,
+    .enterprise {
+
+        &_inner {
+            padding-bottom: 9.45%;
+        }
+
+        &_top {
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 200%;
+                padding-bottom: 22.86%;
+                background-color: $gray_5;
+            }
+        }
+
+        &_title {
+            @include font(40px, 46px, 'PlayfairDisplay-Bold');
+
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+
+            &::first-letter {
+                color: $blue_3;
+            }
+        }
+
+        &_img {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            max-height: 100%;
+
+            &_wrap {
+                position: relative;
+                padding-bottom: 22.86%;
+                margin-left: auto;
+                overflow: hidden;
+                z-index: 1;
+            }
+        }
+
+        &_content {
+
+            &_list {
+                padding: 6.86% 2.29% 2.29% 0;
+            }
+
+            &_item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 2.34% 0;
+
+                .description_left {
+                    @include font(14px, 24px, 'Montserrat-Regular');
+
+                    width: 65%;
+                    color: $gray_10;
+                }
+
+                .description_right {
+                    @include font(14px, 24px, 'Montserrat-Bold');
+
+                    width: 25%;
+                }
+            }
+        }
+
+        &_bottom {
+
+            &_description {
+                @include font(14px, 24px, 'Montserrat-Regular');                
+
+                color: $gray_13;
+            }
+        }
+    }
+}
+
+
+// 0 - 767px
+@include respond-to(mobile) {
+
+    .price {
+
+        &_inner {
+            overflow-x: hidden;
+        }
+
+        .aside {
+            display: none;
+        }
+
+        &_content {
+            width: 100%;
+            border-right: 0;
+        }
+
+        .expertise,
+        .research,
+        .realty,
+        .autotransport,
+        .airtransport,
+        .equipment,
+        .enterprise {
+
+            &_top {
+
+                &::before {
+                    transform: translateX(25%);
+                }
+            }
+        }
+    }
+}
+
+
+// 0 - 479px
+@include respond-to(mobile_small) {
+
+    .price {
+
+        .expertise,
+        .research,
+        .realty,
+        .autotransport,
+        .airtransport,
+        .equipment,
+        .enterprise {
+
+            &_content {
+
+                &_item {
+
+                    .description {
+                        
+                        &_left {
+                            font-size: 10px;
+                            line-height: 16px;
+                        }
+
+                        &_right {
+                            font-size: 10px;
+                            line-height: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
